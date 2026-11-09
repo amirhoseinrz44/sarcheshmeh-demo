@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>سرچشمه — بفهم فروشت از کجا آب می‌خوره</title>
+<meta name="description" content="سرچشمه، آنالیتیکس ایرانی ووکامرس: منبع هر فروش و لید، رفتار کاربران، تحلیل کمپین‌های یکتانت و اتصال به هوش مصنوعی. بدون تحریم و دردسر گوگل آنالیتیکس.">
+<meta name="theme-color" content="#0b1030">
+<link rel="icon" href="assets/img/icon.png">
+<style>
+@font-face{font-family:Estedad;src:url('assets/fonts/Estedad-wght.ttf') format('truetype');font-weight:100 900;font-display:swap}
+@font-face{font-family:Lalezar;src:url('assets/fonts/Lalezar-Regular.ttf') format('truetype');font-display:swap}
+:root{--bg:#070b1f;--bg2:#0e1440;--card:#121a4a;--line:rgba(255,255,255,.1);--ink:#f8fafc;--mute:#aab4d6;--ind:#6366f1;--ind2:#4f46e5;--vio:#7c3aed;--lime:#a3e635;--green:#22c55e;--red:#f43f5e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Estedad,Tahoma,sans-serif;color:var(--ink);background:var(--bg);line-height:1.9;font-size:17px;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:110px 0;position:relative}
+.glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 500px at 75% 0%,rgba(99,102,241,.25),transparent 65%),radial-gradient(700px 500px at 0% 100%,rgba(124,58,237,.16),transparent 60%)}
+.grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(800px 500px at 50% 30%,#000,transparent 75%)}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 20px;border-radius:999px;background:rgba(99,102,241,.15);border:1px solid rgba(129,140,248,.45);font-size:15px;font-weight:700;color:#c7d2fe}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px rgba(163,230,53,.18)}
+.eyebrow{color:var(--lime);font-weight:800;font-size:15px;letter-spacing:.3px;margin-bottom:10px;display:block}
+h2{font-family:Lalezar;font-weight:400;font-size:clamp(34px,4.6vw,54px);line-height:1.45;margin:0 0 18px}
+h2 b,h3 b{color:var(--lime);font-weight:inherit}
+h3{font-size:clamp(23px,2.6vw,30px);font-weight:900;line-height:1.5;margin:0 0 14px}
+.lead{color:var(--mute);font-size:clamp(17px,1.6vw,19px);max-width:760px}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:16px;font-weight:800;font-size:17px;text-decoration:none;transition:transform .15s,box-shadow .15s;cursor:pointer;border:0;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:linear-gradient(90deg,#84cc16,var(--lime));color:#0b1030;box-shadow:0 14px 34px rgba(163,230,53,.28)}
+.btn-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:#fff}
+.btn svg{width:20px;height:20px}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(7,11,31,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:40px;height:40px;border-radius:12px}
+.logo b{font-family:Lalezar;font-weight:400;font-size:28px;line-height:1}
+header nav{display:flex;gap:26px;font-size:15px;font-weight:700;color:var(--mute)}
+header nav a{text-decoration:none}header nav a:hover{color:#fff}
+header .btn{padding:10px 20px;font-size:15px;border-radius:12px}
+
+/* hero */
+.hero{padding:70px 0 90px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:50px;align-items:center}
+.hero .wrap>*,.feat>*,.vs>*,.groups>*,.stats>*,.steps>*{min-width:0}
+.hero h1{font-family:Lalezar;font-weight:400;font-size:clamp(76px,10vw,128px);line-height:1.35;margin:10px 0 0;padding-bottom:6px;background:linear-gradient(180deg,#fff 35%,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .tag{font-weight:700;color:#c7d2fe;font-size:19px;margin:-6px 0 18px}
+.hero .big{font-family:Lalezar;font-weight:400;font-size:clamp(36px,4.4vw,52px);line-height:1.5;margin:0 0 16px}
+.hero .big b{color:var(--lime);font-weight:400}
+.hero p.lead{margin:0 0 30px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#dbe2ff;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line)}
+.chips svg{width:16px;height:16px;color:var(--lime)}
+.shot{position:relative}
+.browser{border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 40px 100px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.14)}
+.bar{height:38px;background:#eef1f8;display:flex;align-items:center;gap:8px;padding:0 14px;direction:ltr;border-bottom:1px solid #dde3ef}
+.bar i{width:11px;height:11px;border-radius:50%}
+.bar span{margin-left:14px;flex:1;height:22px;border-radius:7px;background:#fff;font-size:12px;font-weight:600;color:#64748b;display:flex;align-items:center;padding:0 12px;overflow:hidden;white-space:nowrap}
+.hero .browser{transform:perspective(2000px) rotateY(-9deg) rotateX(3deg)}
+.hero .browser img{height:440px;width:100%;object-fit:cover;object-position:top}
+.float{position:absolute;background:#fff;color:#0f172a;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.45);padding:14px 18px;font-weight:800}
+.float.live{top:-18px;left:30px;display:flex;align-items:center;gap:10px;font-size:16px}
+.float.live i{width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(34,197,94,.2);animation:pulse 1.6s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 9px rgba(34,197,94,0)}}
+.float.rev{bottom:-26px;right:-10px;min-width:230px}
+.float.rev small{display:block;color:#64748b;font-size:13px;font-weight:700}
+.float.rev strong{display:block;font-size:30px;font-weight:900;line-height:1.4}
+.float.rev em{font-style:normal;font-size:13px;color:#047857;background:#d1fae5;border-radius:999px;padding:2px 10px}
+
+/* compare */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:46px}
+.vs .card{border-radius:24px;padding:34px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.vs .card.good{background:linear-gradient(160deg,rgba(99,102,241,.2),rgba(124,58,237,.12));border-color:rgba(129,140,248,.45)}
+.vs h3{display:flex;align-items:center;gap:12px;font-size:22px}
+.vs ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.vs li{display:flex;gap:12px;align-items:flex-start;color:#dbe2ff}
+.vs li svg{flex:none;width:22px;height:22px;margin-top:4px}
+.bad li svg{color:var(--red)}.good li svg{color:var(--lime)}
+
+/* channels */
+.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.group{border:1px solid var(--line);border-radius:20px;padding:22px;background:rgba(255,255,255,.03)}
+.group h4{margin:0 0 12px;font-size:16px;color:#c7d2fe}
+.group div{display:flex;flex-wrap:wrap;gap:8px}
+.group span{font-size:14px;font-weight:700;padding:5px 12px;border-radius:10px;background:rgba(255,255,255,.07)}
+
+/* feature rows */
+.feat{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center;margin-top:90px}
+.feat:first-of-type{margin-top:50px}
+.feat.flip{grid-template-columns:1.15fr 1fr}
+.feat.flip .txt{order:2}
+.feat ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.feat li{display:flex;gap:12px;color:#dbe2ff}
+.feat li:before{content:"";flex:none;width:9px;height:9px;border-radius:3px;background:var(--lime);margin-top:12px}
+.feat .num{display:inline-flex;width:44px;height:44px;border-radius:14px;align-items:center;justify-content:center;background:rgba(163,230,53,.12);border:1px solid rgba(163,230,53,.4);color:var(--lime);font-weight:900;margin-bottom:16px}
+figure{margin:0}
+.zoom{cursor:zoom-in;position:relative}
+.zoom img{height:430px;width:100%;object-fit:cover;object-position:top}
+figcaption{color:var(--mute);font-size:14px;margin-top:12px;text-align:center}
+
+/* chat */
+.chat{border-radius:24px;padding:26px;background:linear-gradient(160deg,#1e1b4b,#3730a3);border:1px solid rgba(255,255,255,.2);box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.chat .who{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.chat .who b{width:46px;height:46px;border-radius:14px;background:var(--lime);color:#1e1b4b;display:flex;align-items:center;justify-content:center;font-size:24px}
+.chat .who strong{font-size:19px;display:block;line-height:1.4}
+.chat .who small{color:#c7d2fe;font-size:13px}
+.chat .apps{margin-right:auto;display:flex;gap:6px;direction:ltr}
+.chat .apps span{font-size:13px;font-weight:800;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25)}
+.msg{max-width:88%;padding:12px 16px;border-radius:16px;margin-bottom:12px;font-size:16px;line-height:1.85}
+.msg.q{background:rgba(255,255,255,.13);border-bottom-right-radius:5px}
+.msg.a{background:#fff;color:#0f172a;margin-right:auto;border-bottom-left-radius:5px}
+.msg.a b{color:var(--ind2)}
+.typing{display:inline-flex;gap:5px}.typing i{width:7px;height:7px;border-radius:50%;background:#94a3b8;animation:blink 1.2s infinite}.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{50%{opacity:.25}}
+
+/* demo */
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:36px 0 18px}
+.tabs button{font-family:inherit;font-size:15px;font-weight:800;color:#dbe2ff;background:rgba(255,255,255,.06);border:1px solid var(--line);padding:10px 20px;border-radius:12px;cursor:pointer}
+.tabs button.on{background:var(--ind2);border-color:var(--ind2);color:#fff}
+.demo .browser iframe{display:block;width:100%;height:780px;border:0;background:#f4f6fb}
+.demo-note{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:46px}
+.stat{border:1px solid var(--line);border-radius:22px;padding:26px;background:rgba(255,255,255,.03)}
+.stat strong{display:block;font-family:Lalezar;font-weight:400;font-size:44px;line-height:1.3;color:var(--lime)}
+.stat span{color:#dbe2ff;font-weight:700}
+.stat p{margin:6px 0 0;color:var(--mute);font-size:14px;line-height:1.8}
+.checks{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 30px;margin-top:34px}
+.checks div{display:flex;gap:12px;color:#dbe2ff}
+.checks svg{flex:none;width:22px;height:22px;color:var(--lime);margin-top:4px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
+.step{border:1px solid var(--line);border-radius:22px;padding:28px;background:rgba(255,255,255,.03)}
+.step b{display:inline-flex;width:42px;height:42px;border-radius:12px;align-items:center;justify-content:center;background:var(--ind2);font-weight:900;margin-bottom:14px}
+.step h4{margin:0 0 8px;font-size:19px}
+.step p{margin:0;color:var(--mute);font-size:15px}
+
+/* faq */
+.faq{max-width:860px;margin:40px auto 0}
+details{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03);margin-bottom:12px;padding:0 24px}
+summary{cursor:pointer;font-weight:800;padding:18px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--lime);font-size:24px;line-height:1}
+details[open] summary:after{content:"−"}
+details p{margin:0 0 20px;color:var(--mute)}
+
+/* final */
+.final .box{border-radius:32px;padding:70px 30px;background:linear-gradient(135deg,var(--ind2),var(--vio));text-align:center;position:relative;overflow:hidden}
+.final .box:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(600px 300px at 50% 50%,#000,transparent)}
+.final .box>*{position:relative}
+.final p{color:#e0e7ff;max-width:640px;margin:0 auto 30px}
+footer{padding:40px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(3,6,20,.9);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-height:92vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+	header nav{display:none}
+	.hero .wrap,.feat,.feat.flip{grid-template-columns:1fr}
+	.feat.flip .txt{order:0}
+	.hero .browser{transform:none}
+	.vs,.groups,.steps,.checks{grid-template-columns:1fr}
+	.stats{grid-template-columns:1fr 1fr}
+	section{padding:80px 0}
+	.zoom img,.hero .browser img{height:300px}
+	.demo .browser iframe{height:640px}
+	.float.rev{right:10px}
+}
+@media (max-width:560px){.stats{grid-template-columns:1fr}.hero .cta .btn{flex:1 1 100%}}
+/* long image for the product page: python tools/build_demo.py renders index.html?long */
+.long header,.long #demo,.long .hero .cta,.long .final .btn,.long figcaption{display:none!important}
+.long .reveal{opacity:1;transform:none;transition:none}
+.long details p{display:block}
+.long summary:after{content:""}
+.long section{padding:80px 0}
+.long .hero{padding-top:80px}
+.long .final{padding-bottom:90px}
+.long footer{display:none}
+.only-long{display:none}.long details[open] summary:after{content:""}.long .stat strong{font-size:36px}.long .only-long{display:inline-flex}
+.long .float.live i{animation:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+	<div class="wrap">
+		<a class="logo" href="#top"><img src="assets/img/icon.png" alt=""><b>سرچشمه</b></a>
+		<nav><a href="#why">چرا سرچشمه</a><a href="#features">امکانات</a><a href="#ai">هوش مصنوعی</a><a href="#demo">دمو</a><a href="#faq">سؤالات</a></nav>
+		<a class="btn btn-main" href="https://www.rtl-theme.com/" target="_blank" rel="noopener">خرید از راست‌چین</a>
+	</div>
+</header>
+
+<section class="hero" id="top">
+	<div class="glow"></div><div class="grid-bg"></div>
+	<div class="wrap">
+		<div>
+			<span class="pill"><i></i>افزونه ووکامرس · ساخت ایران</span>
+			<h1>سرچشمه</h1>
+			<p class="tag">آنالیتیکس ایرانی فروشگاه شما</p>
+			<p class="big">بفهم فروشت<br><b>از کجا آب می‌خوره!</b></p>
+			<p class="lead">گوگل؟ ترب؟ اینستاگرام؟ یکتانت؟ سرچشمه کنار هر سفارش و هر تماس می‌نویسه مشتری دقیقاً از کجا اومده. بدون گوگل آنالیتیکس، بدون تحریم و بدون کدنویسی.</p>
+			<div class="cta">
+				<a class="btn btn-main" href="#demo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 9-14 9V3z"/></svg>پنل رو همین‌جا امتحان کن</a>
+				<a class="btn btn-ghost" href="https://www.rtl-theme.com/" target="_blank" rel="noopener">خرید از راست‌چین</a>
+			</div>
+			<div class="chips">
+				<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>فارسی و تاریخ شمسی</span>
+				<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>بدون ارسال داده به خارج</span>
+				<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>سبک و سازگار با کش</span>
+				<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>وصل به ChatGPT و Claude</span>
+			</div>
+		</div>
+		<div class="shot">
+			<div class="browser">
+				<div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span>example.ir/wp-admin/admin.php?page=nca-dashboard</span></div>
+				<img src="assets/img/01-overview.webp" alt="داشبورد سرچشمه" width="1440" height="1080">
+			</div>
+			<div class="float live"><i></i>۲۴ نفر همین حالا در سایت</div>
+			<div class="float rev"><small>درآمد ۳۰ روز اخیر</small><strong>۹۰۰ میلیون</strong><em>+۲۰۷٪ نسبت به ماه قبل</em></div>
+		</div>
+	</div>
+</section>
+
+<section id="why">
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">حدس زدن بسه</span>
+			<h2>پول تبلیغات می‌دی، ولی <b>نمی‌دونی کدومش جواب داده؟</b></h2>
+			<p class="lead">ووکامرس فقط می‌گه سفارش اومده، نمی‌گه از کجا. نتیجه‌ش؟ کمپینی که فروش نداره تمدید می‌شه و کانالی که داره می‌فروشه دیده نمی‌شه.</p>
+		</div>
+		<div class="vs">
+			<div class="card bad reveal">
+				<h3>بدون سرچشمه</h3>
+				<ul>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>سفارش اومده، ولی معلوم نیست از گوگل بوده یا اینستاگرام</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>پنل تبلیغات کلیک رو نشون می‌ده، نه فروش واقعی رو</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>گوگل آنالیتیکس: تحریم، فیلترشکن، گزارش‌های انگلیسی و پیچیده</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>تماس‌ها و پیام‌های واتساپ هیچ‌جا شمرده نمی‌شن</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>برای گزارش آخر ماه باید با اکسل کلنجار بری</li>
+				</ul>
+			</div>
+			<div class="card good reveal">
+				<h3>با سرچشمه</h3>
+				<ul>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>کنار هر سفارش نوشته از کدوم کانال و کدوم کمپین اومده</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>فروش، هزینه و بازگشت سرمایه هر کمپین یکتانت، جدا جدا</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>آمار بازدید و رفتار کاربر داخل خود وردپرس، فارسی و شمسی</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>تماس، واتساپ، تلگرام، بله و فرم‌ها هم لید حساب می‌شن</li>
+					<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>بازه شمسی رو انتخاب کن؛ مقایسه با دوره قبل آماده‌ست</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="channels">
+	<div class="glow"></div>
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">تشخیص خودکار</span>
+			<h2>بیش از <b>۴۰ کانال</b> رو خودش می‌شناسه</h2>
+			<p class="lead">لازم نیست برای هر لینک UTM بسازی. سرچشمه سایت ارجاع‌دهنده، اپلیکیشن مبدأ و پارامترهای تبلیغاتی رو می‌خونه و خودش می‌فهمه مشتری از کجا اومده.</p>
+		</div>
+		<div class="groups">
+			<div class="group reveal"><h4>موتورهای جستجو</h4><div><span>گوگل</span><span>بینگ</span><span>ذره‌بین</span><span>داک‌داک‌گو</span><span>یاندکس</span></div></div>
+			<div class="group reveal"><h4>مقایسه قیمت و بازارگاه</h4><div><span>ترب</span><span>ایمالز</span><span>دیجی‌کالا</span><span>باسلام</span><span>دیوار</span><span>شیپور</span></div></div>
+			<div class="group reveal"><h4>تبلیغات</h4><div><span>یکتانت</span><span>پنجره</span><span>مدیااد</span><span>گوگل ادز</span><span>متا ادز</span><span>تیک‌تاک ادز</span></div></div>
+			<div class="group reveal"><h4>شبکه‌های اجتماعی</h4><div><span>اینستاگرام</span><span>آپارات</span><span>یوتیوب</span><span>لینکدین</span><span>ایکس</span><span>تیک‌تاک</span></div></div>
+			<div class="group reveal"><h4>پیام‌رسان‌ها، ایمیل و پیامک</h4><div><span>تلگرام</span><span>واتساپ</span><span>بله</span><span>ایتا</span><span>روبیکا</span><span>پیامک</span><span>ایمیل</span></div></div>
+			<div class="group reveal"><h4>هوش مصنوعی</h4><div><span>ChatGPT</span><span>Gemini</span><span>Perplexity</span><span>DeepSeek</span><span>Claude</span><span>Copilot</span></div></div>
+		</div>
+	</div>
+</section>
+
+<section id="features">
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">امکانات</span>
+			<h2>همه چیزی که برای <b>تصمیم درست</b> لازم داری</h2>
+		</div>
+
+		<div class="feat reveal">
+			<div class="txt">
+				<span class="num">۱</span>
+				<h3>سهم هر کانال از فروش، <b>تو یه نگاه</b></h3>
+				<p class="lead">درآمد خالص، تعداد سفارش، لید و مقایسه با دوره قبل، همه بالای صفحه. زیرش هم سهم هر کانال و نمودار روند روزانه، هفتگی و ماهانه.</p>
+				<ul>
+					<li>«تحلیل این بازه» به زبان ساده می‌گه چی شده: کدوم کانال رشد کرده، کدوم افت</li>
+					<li>منبع اولین ورود یا آخرین ورود مشتری؛ انتخاب با خودت</li>
+					<li>بازه‌های آماده شمسی یا تاریخ دلخواه، با خروجی اکسل و نسخه چاپی</li>
+				</ul>
+			</div>
+			<figure class="zoom"><div class="browser"><div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span>نمای کلی</span></div><img src="assets/img/02-channels.webp" alt="عملکرد هر کانال" loading="lazy" width="1440" height="1480"></div><figcaption>برای بزرگ‌نمایی کلیک کنید</figcaption></figure>
+		</div>
+
+		<div class="feat flip reveal">
+			<div class="txt">
+				<span class="num">۲</span>
+				<h3>رفتار کاربرا مثل آنالیتیکس، <b>ولی مال خودت</b></h3>
+				<p class="lead">جلسه، کاربر، نرخ تعامل و قیف خرید از ورود به سایت تا پرداخت. همه روی سرور خودت ذخیره می‌شه؛ نه تحریمی، نه فیلترشکنی.</p>
+				<ul>
+					<li>کاربرهای آنلاین همین حالا، با کانال و صفحه‌ای که توش هستن</li>
+					<li>صفحه‌های ورود و خروج، دستگاه، سیستم‌عامل و مرورگر</li>
+					<li>جستجوهای داخل سایت و جستجوهای بی‌نتیجه؛ یعنی همون کالاهایی که مشتری می‌خواد و نداری</li>
+					<li>نقشه ساعت‌های شلوغ هفته برای زمان‌بندی کمپین‌ها</li>
+				</ul>
+			</div>
+			<figure class="zoom"><div class="browser"><div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span>رفتار کاربران</span></div><img src="assets/img/03-behavior.webp" alt="رفتار کاربران" loading="lazy" width="1440" height="1080"></div><figcaption>برای بزرگ‌نمایی کلیک کنید</figcaption></figure>
+		</div>
+
+		<div class="feat reveal">
+			<div class="txt">
+				<span class="num">۳</span>
+				<h3>یکتانت: کلیک بس نیست، <b>فروش رو ببین</b></h3>
+				<p class="lead">برای هر کمپین یکتانت و پنجره، کلیک ورودی، سفارش، درآمد، نرخ تبدیل و فاصله کلیک تا خرید رو جدا می‌بینی.</p>
+				<ul>
+					<li>هزینه کمپین رو وارد کن؛ ROAS، هزینه هر سفارش و هزینه هر کلیک خودکار حساب می‌شه</li>
+					<li>سهم یکتانت در مسیر خرید: معرف بوده یا خرید رو نهایی کرده</li>
+					<li>گزارش جدا برای کمپین‌های پیامکی و لینک‌های کوتاه</li>
+				</ul>
+			</div>
+			<figure class="zoom"><div class="browser"><div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span>یکتانت و پنجره</span></div><img src="assets/img/05-yektanet.webp" alt="گزارش یکتانت" loading="lazy" width="1440" height="1080"></div><figcaption>برای بزرگ‌نمایی کلیک کنید</figcaption></figure>
+		</div>
+
+		<div class="feat flip reveal">
+			<div class="txt">
+				<span class="num">۴</span>
+				<h3>لیدها هم <b>آدم حساب می‌شن</b></h3>
+				<p class="lead">اگه بخشی از فروشت تلفنی یا واتساپیه، سرچشمه هر کلیک روی دکمه تماس، واتساپ، تلگرام، بله و دایرکت رو با کانال ورودش ثبت می‌کنه.</p>
+				<ul>
+					<li>ارسال فرم‌های Contact Form 7، المنتور پرو، Gravity Forms و WPForms</li>
+					<li>کد پیگیری واتساپ؛ فروشی که توی گفتگو نهایی شده هم به کانال درستش وصل می‌شه</li>
+					<li>صفحه «لیدها» برای پیگیری، تأیید و ثبت مبلغ فروش هر لید</li>
+				</ul>
+			</div>
+			<figure class="zoom"><div class="browser"><div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span>نمای کلی</span></div><img src="assets/img/01-overview.webp" alt="لید و فروش" loading="lazy" width="1440" height="1080" style="object-position:center 70%"></div><figcaption>برای بزرگ‌نمایی کلیک کنید</figcaption></figure>
+		</div>
+	</div>
+</section>
+
+<section id="ai">
+	<div class="glow"></div>
+	<div class="wrap feat" style="margin-top:0">
+		<div class="txt reveal">
+			<span class="eyebrow">ویژگی خاص سرچشمه</span>
+			<h2>از هوش مصنوعی بپرس، <b>فارسی جواب بگیر</b></h2>
+			<p class="lead">سرچشمه رو به ChatGPT یا Claude وصل کن و مثل یه همکار ازش بپرس. دیگه لازم نیست بین گزارش‌ها بگردی؛ خودش آمار رو می‌خونه و جواب می‌ده.</p>
+			<ul>
+				<li>«فروش این ماه رو با ماه قبل مقایسه کن، کدوم کانال افت کرده؟»</li>
+				<li>«کدوم کمپین یکتانت ارزش ادامه دادن داره؟»</li>
+				<li>«چرا فروش هفته قبل کم شد؟»</li>
+			</ul>
+			<div class="chips" style="margin-top:24px">
+				<span>دسترسی فقط خواندنی</span><span>بدون ارسال اطلاعات شخصی مشتری‌ها</span><span>قطع اتصال با یک کلیک</span>
+			</div>
+		</div>
+		<div class="chat reveal" id="chat">
+			<div class="who"><b>✦</b><div><strong>متصل به هوش مصنوعی</strong><small>از آمار فروشگاه به زبان ساده بپرسید</small></div><div class="apps"><span>ChatGPT</span><span>Claude</span></div></div>
+			<div class="msg q">فروش این ماه از کدوم کانال بیشتر بود؟</div>
+			<div class="msg a"><b>گوگل ارگانیک</b> با ۲۷٪ از درآمد اوله. بیشترین رشد مال <b>یکتانت</b> بوده: ۴۷۶٪ بیشتر از ماه قبل.</div>
+			<div class="msg q">کدوم محصولات رو مشتری‌ها جستجو کردن ولی پیدا نکردن؟</div>
+			<div class="msg a" id="chat-last"><span class="typing"><i></i><i></i><i></i></span></div>
+		</div>
+	</div>
+</section>
+
+<section id="demo" class="demo">
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">امتحانش کن</span>
+			<h2>پنل سرچشمه رو <b>همین‌جا بگرد</b></h2>
+			<p class="lead">این نسخه نمایشی پنل واقعی افزونه با داده نمونه‌ست. بین تب‌ها جابه‌جا شو، بازه زمانی رو عوض کن و روی کانال‌ها کلیک کن. (هیچ تغییری جایی ذخیره نمی‌شه.)</p>
+		</div>
+		<div class="tabs" role="tablist">
+			<button class="on" data-src="panel/dashboard.html" data-url="page=nca-dashboard">داشبورد و گزارش‌ها</button>
+			<button data-src="panel/ai.html" data-url="page=nca-ai">اتصال هوش مصنوعی</button>
+			<button data-src="panel/settings.html" data-url="page=nca-settings">تنظیمات و سلامت افزونه</button>
+		</div>
+		<div class="browser reveal">
+			<div class="bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#34d399"></i><span id="demo-url">example.ir/wp-admin/admin.php?page=nca-dashboard</span></div>
+			<iframe id="demo-frame" src="panel/dashboard.html" title="نسخه نمایشی پنل سرچشمه" loading="lazy"></iframe>
+		</div>
+		<div class="demo-note chips"><span>داده‌ها نمونه هستن</span><span>داخل پنل اسکرول کن</span><span>روی موبایل هم کار می‌کنه</span></div>
+	</div>
+</section>
+
+<section id="light">
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">سبک و مطمئن</span>
+			<h2>سایتت <b>کند نمی‌شه</b>، دیتابیست هم شلوغ نمی‌شه</h2>
+			<p class="lead">سرچشمه برای فروشگاه‌های واقعی و هاست‌های ایرانی ساخته شده؛ جایی که هر میلی‌ثانیه و هر مگابایت مهمه.</p>
+		</div>
+		<div class="stats">
+			<div class="stat reveal"><strong>۱۸ کیلوبایت</strong><span>اسکریپت ردیابی</span><p>بعد از بارگذاری صفحه اجرا می‌شه و روی سرعت اثری نداره.</p></div>
+			<div class="stat reveal"><strong>صفر</strong><span>داده به سرور خارجی</span><p>همه آمار روی هاست خودت می‌مونه. IP بازدیدکننده هم ذخیره نمی‌شه.</p></div>
+			<div class="stat reveal"><strong>یک کلیک</strong><span>وارد کردن سفارش‌های قبلی</span><p>داشبورد از همون روز اول پره؛ لازم نیست هفته‌ها صبر کنی.</p></div>
+			<div class="stat reveal"><strong>خودکار</strong><span>پاکسازی آمار قدیمی</span><p>آمار روزانه تجمیع می‌شه و بازدیدهای قدیمی‌تر از مدت تعیین‌شده پاک می‌شن.</p></div>
+		</div>
+		<div class="checks">
+			<div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>سازگار با کش صفحه: WP Rocket، LiteSpeed، Perfmatters و ...</div>
+			<div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>سازگار با ووکامرس فارسی، افزونه‌های تاریخ شمسی و HPOS</div>
+			<div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>ربات‌ها و مدیرهای سایت توی آمار شمرده نمی‌شن</div>
+			<div class="reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>بخش «سلامت افزونه» حجم دقیق داده‌ها رو همیشه نشون می‌ده</div>
+		</div>
+	</div>
+</section>
+
+<section id="setup">
+	<div class="glow"></div>
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">راه‌اندازی</span>
+			<h2>سه قدم تا <b>اولین گزارش</b></h2>
+		</div>
+		<div class="steps">
+			<div class="step reveal"><b>۱</b><h4>نصب و فعال‌سازی</h4><p>افزونه رو نصب کن و لایسنس رو با افزونه مدیریت راست‌چین فعال کن. تنظیمات پیش‌فرض برای بیشتر فروشگاه‌ها آماده‌ست.</p></div>
+			<div class="step reveal"><b>۲</b><h4>وارد کردن سفارش‌های قبلی</h4><p>ووکامرس از نسخه ۸٫۵ منبع سفارش‌ها رو نگه می‌داره. با یه کلیک همه‌شون وارد گزارش‌ها می‌شن.</p></div>
+			<div class="step reveal"><b>۳</b><h4>لینک‌های تبلیغاتی (اختیاری)</h4><p>برای استوری، بیو و پیامک‌ها با سازنده UTM داخل افزونه لینک بساز تا هر کمپین جدا شمرده بشه.</p></div>
+		</div>
+	</div>
+</section>
+
+<section id="faq">
+	<div class="wrap">
+		<div class="center reveal">
+			<span class="eyebrow">سؤالات رایج</span>
+			<h2>قبل از خرید <b>بپرس</b></h2>
+		</div>
+		<div class="faq">
+			<details><summary>جای گوگل آنالیتیکس رو می‌گیره؟</summary><p>برای یه فروشگاه ووکامرسی، بله. منبع فروش، رفتار کاربر، قیف خرید و جستجوهای داخلی رو بدون تحریم و فیلترشکن و به فارسی می‌بینی. اگه بخوای می‌تونی آنالیتیکس رو هم کنارش نگه داری؛ تداخلی ندارن.</p></details>
+			<details><summary>سایتم رو کند نمی‌کنه؟</summary><p>نه. اسکریپت ردیابی حدود ۱۸ کیلوبایته و بعد از بارگذاری صفحه اجرا می‌شه. ثبت آمار هم با یک تا سه درخواست بسیار سبک انجام می‌شه که قبل از بارگذاری قالب و افزونه‌ها جواب می‌گیره.</p></details>
+			<details><summary>با کش و افزونه‌های بهینه‌سازی مشکلی نداره؟</summary><p>نه. با WP Rocket، LiteSpeed Cache و Perfmatters سازگاره. اگه «تأخیر در اجرای جاوااسکریپت» روشن باشه، راهنمای اول کار بهت می‌گه چی کار کنی.</p></details>
+			<details><summary>پیش‌نیازها چیه؟</summary><p>PHP نسخه ۸٫۱ یا بالاتر با ionCube Loader فعال (بیشتر هاست‌های ایرانی دارن؛ اگه نبود پشتیبانی هاست چند دقیقه‌ای فعالش می‌کنه)، وردپرس ۶٫۲ به بالا، ووکامرس ۸ به بالا و افزونه مدیریت هوشمند راست‌چین برای لایسنس.</p></details>
+			<details><summary>اتصال به هوش مصنوعی امنه؟</summary><p>دسترسی فقط خواندنیه و فقط آمار تجمیعی فرستاده می‌شه؛ نام، شماره و آدرس مشتری‌ها هیچ‌وقت ارسال نمی‌شه. هر وقت بخوای با یه کلیک قطعش می‌کنی.</p></details>
+		</div>
+	</div>
+</section>
+
+<section class="final">
+	<div class="wrap">
+		<div class="box reveal">
+			<h2>وقتشه بدونی <b>پولت کجا خرج می‌شه</b></h2>
+			<p>سرچشمه رو نصب کن، سفارش‌های قبلی رو وارد کن و از همین امروز بفهم کدوم کانال واقعاً برات می‌فروشه.</p>
+			<a class="btn btn-main" href="https://www.rtl-theme.com/" target="_blank" rel="noopener">خرید سرچشمه از راست‌چین</a>
+			<span class="pill only-long" style="font-size:18px;padding:12px 26px;background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.35)">دموی زنده پنل: دکمه «پیش‌نمایش» همین صفحه</span>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="wrap"><span>سرچشمه · آنالیتیکس ایرانی ووکامرس</span><span>طراحی و توسعه: امیر رضایی</span></div>
+</footer>
+
+<div class="lb" id="lb"><img alt=""></div>
+
+<script>
+(function () {
+	var LONG = /[?&]long(=|&|$)/.test(location.search);
+	if (LONG) { document.documentElement.classList.add('long'); document.querySelectorAll('details').forEach(function (d) { d.open = true; }); document.getElementById('chat-last').innerHTML = '<b>آیفون ۱۶</b> (۳۱ بار) و <b>ساعت هوشمند</b> (۲۷ بار) جستجو شدن ولی نتیجه‌ای نداشتن. اگه موجودشون کنی، احتمالاً فروش خوبی دارن.'; return; }
+	var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+		es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+	}, { threshold: .12 }) : null;
+	document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
+
+	var lb = document.getElementById('lb');
+	document.querySelectorAll('.zoom').forEach(function (f) {
+		f.addEventListener('click', function () { lb.querySelector('img').src = f.querySelector('img').src; lb.classList.add('on'); });
+	});
+	lb.addEventListener('click', function () { lb.classList.remove('on'); });
+	document.addEventListener('keydown', function (e) { if (e.key === 'Escape') lb.classList.remove('on'); });
+
+	var frame = document.getElementById('demo-frame'), url = document.getElementById('demo-url');
+	document.querySelectorAll('.tabs button').forEach(function (b) {
+		b.addEventListener('click', function () {
+			document.querySelectorAll('.tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+			frame.src = b.dataset.src;
+			url.textContent = 'example.ir/wp-admin/admin.php?' + b.dataset.url;
+		});
+	});
+
+	var last = document.getElementById('chat-last'), done = false;
+	var chatIo = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+		if (!done && es[0].isIntersecting) {
+			done = true;
+			setTimeout(function () { last.innerHTML = '<b>آیفون ۱۶</b> (۳۱ بار) و <b>ساعت هوشمند</b> (۲۷ بار) جستجو شدن ولی نتیجه‌ای نداشتن. اگه موجودشون کنی، احتمالاً فروش خوبی دارن.'; }, 1600);
+		}
+	}, { threshold: .5 }) : null;
+	if (chatIo) { chatIo.observe(document.getElementById('chat')); } else { last.textContent = ''; }
+})();
+window.ncaDemoGo=function(h){var b=document.querySelector('.tabs button[data-src="panel/'+h.split('#')[0]+'"]');if(b)b.click();};
+</script>
+</body>
+</html>
